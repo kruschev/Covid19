@@ -13,7 +13,7 @@ Coronavirus disease 2019 (COVID-19) is a pandemic caused by the SARS-CoV-2 virus
 [ ![](tableau/info.png) ](tableau/info.png)
 
 ## Spread of the virus
-So far we have seen two major phases of the pandemic. In the first phase, the outbreak is fairly contained within China. In the second phase, the outbreak in Italy initialized a widespread of the virus all over the world, especially in Europe. This could be due to the free movement policy between Schengen countries and the hesitation of governments to limit travel.
+So far we have seen two major phases of the pandemic. In the first phase, the outbreak is fairly contained within China. In the second phase, the outbreak in Italy initiated a widespread of the virus all over the world, especially in Europe. This could be due to the free movement policy between Schengen countries and the hesitation of governments to limit travel.
 
 [Youtube link](https://youtu.be/ek-AyIIx07E)
 [ ![](tableau/spread.gif) ](tableau/spread.gif)
