@@ -1,0 +1,46 @@
+date,country,New_cases,Rank
+2020-01-26,China,2075.0,1st
+2020-01-26,Thailand,8.0,2nd
+2020-01-26,United States,5.0,3rd
+2020-01-26,Australia,4.0,4th
+2020-01-26,Japan,4.0,5th
+2020-02-02,China,14555.0,1st
+2020-02-02,Japan,16.0,2nd
+2020-02-02,Singapore,14.0,3rd
+2020-02-02,South Korea,12.0,4th
+2020-02-02,Thailand,11.0,5th
+2020-02-09,China,23199.0,1st
+2020-02-09,Singapore,22.0,2nd
+2020-02-09,Cruise Ship,17.0,3rd
+2020-02-09,Thailand,13.0,4th
+2020-02-09,South Korea,10.0,5th
+2020-02-16,China,30684.0,1st
+2020-02-16,Cruise Ship,291.0,2nd
+2020-02-16,Singapore,35.0,3rd
+2020-02-16,Japan,33.0,4th
+2020-02-16,Malaysia,6.0,5th
+2020-02-23,China,6509.0,1st
+2020-02-23,South Korea,573.0,2nd
+2020-02-23,Cruise Ship,336.0,3rd
+2020-02-23,Italy,152.0,4th
+2020-02-23,Japan,88.0,5th
+2020-03-01,South Korea,3134.0,1st
+2020-03-01,China,2910.0,2nd
+2020-03-01,Italy,1539.0,3rd
+2020-03-01,Iran,935.0,4th
+2020-03-01,France,118.0,5th
+2020-03-08,Italy,5681.0,1st
+2020-03-08,Iran,5588.0,2nd
+2020-03-08,South Korea,3578.0,3rd
+2020-03-08,France,1006.0,4th
+2020-03-08,Germany,910.0,5th
+2020-03-15,Italy,17372.0,1st
+2020-03-15,Iran,7372.0,2nd
+2020-03-15,Spain,7125.0,3rd
+2020-03-15,Germany,4755.0,4th
+2020-03-15,United States,3464.0,5th
+2020-03-22,Italy,6759.0,1st
+2020-03-22,Spain,3950.0,2nd
+2020-03-22,Germany,3462.0,3rd
+2020-03-22,France,3183.0,4th
+2020-03-22,United States,2922.0,5th
