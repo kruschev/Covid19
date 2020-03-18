@@ -14,14 +14,17 @@ Coronavirus disease 2019 (COVID-19) is a pandemic caused by the SARS-CoV-2 virus
 
 ## Spread of the virus
 So far we have seen two major phases of the pandemic. In the first phase, the outbreak is fairly contained within China. In the second phase, the outbreak in Italy initialized a widespread of the virus all over the world, especially in Europe. This could be due to the free movement policy between Schengen countries and the hesitation of governments to limit travel.
+
+[Youtube link](https://youtu.be/ek-AyIIx07E)
 [ ![](tableau/spread.gif) ](tableau/spread.gif)
 
 ## Active cases around the world
 China started first and recorded massive growth in confirmed cases during February. However, in recent weeks there have been very few new cases being reported, while the situation in Italy is still becoming worse everyday.
+[Youtube link](https://youtu.be/8bJcSxqRitQ)
 [ ![](tableau/active.gif) ](tableau/active.gif)
 
-## A comparison between total cases and total deaths
-China was excluded from the image below.
+## A comparison between total cases and total deaths (excluding China)
+[Youtube link](https://youtu.be/eJiO-lIXvKM)
 [ ![](tableau/casedeath.gif) ](tableau/casedeath.gif)
 
 ## Total cases per population
@@ -50,3 +53,5 @@ After the adjustment, we can see a huge increase in some countries,for example C
 This image shows the distribution of cases in China, without Hubei.
 [ ![](tableau/china.png) ](tableau/china.png)
 
+#### Final thought
+As of March 17, Greenland have finally fallen, which means that [Madagascar](https://plagueinc.fandom.com/wiki/Madagascar) is now humanity's last hope.
