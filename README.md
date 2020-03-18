@@ -1,3 +1,7 @@
 # Covid19
 
-[ ![](active.gif) ](active.gif)
+[ ![](tableau/spread.gif) ](tableau/spread.gif)
+
+[ ![](tableau/active.gif) ](tableau/active.gif)
+
+[ ![](tableau/casedeath.gif) ](tableau/casedeath.gif)
