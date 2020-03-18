@@ -24,7 +24,7 @@ def load(url, measure_name):
 
     return df[['location', 'prov_state', 'country', 'lat', 'long', 'date', cum, new]]  # rearrange the columns and return the df
 
-
+# The data on March 12th for some countries were not updated correctly in the dataset. I used the data from WHO to fill in the errors
 def error_correction(df):
     df.loc[(df.location == 'Japan') & (df.date == '2020-03-12'), 'cum_case'] = 675
     df.loc[(df.location == 'Italy') & (df.date == '2020-03-12'), 'cum_case'] = 15113
