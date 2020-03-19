@@ -7,7 +7,8 @@ main.py is run daily and the dashboard is updated accordingly.
 
 The interactive dashboard can be viewed at
 https://public.tableau.com/views/ncov_15840779917890/Info?:display_count=y&publish=yes&:origin=viz_share_link
-or downloaded from the tableau folder in this repo.
+The dashboard works best when viewed on a computer screen.
+Click view all to keep reading.
 ## Overview
 Coronavirus disease 2019 (COVID-19) is a pandemic caused by the SARS-CoV-2 virus. Originated from Wuhan, it has spread to more than 100 countries and territories. The disease is extremely contagious and has seen exponential growth in China, Italy and Iran. As more people are infected, the country's medical resources are strained and fatal cases are becomming more common. 
 [ ![](tableau/info.png) ](tableau/info.png)
