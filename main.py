@@ -25,6 +25,8 @@ df = df.replace({'Martinique':'France',
                 'Jersey':'United Kingdom',
                 'Guam': 'US'})
 
+df.loc[df.location=='Greenland', 'country'] = 'Greenland'
+
 df_top_bydate = top_bydate(df)
 df_top_bydate.to_csv('data/top_bydate.csv', index=False)
 

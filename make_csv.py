@@ -3,7 +3,7 @@ import pandas as pd
 import country_converter as coco
 
 # This function will copy the flags to be shown on the Tableau's visuals
-def copy_flag(dest, country_list):
+def copy_flag(dest, country_list, ship=True):
     import os, shutil
     import config
 
@@ -15,7 +15,7 @@ def copy_flag(dest, country_list):
     os.mkdir(dest) #remake a new folder
 
     for file in files:
-        if file == 'Cruise Ship.png': #Copy the Diamond Princess flag
+        if file == 'Cruise Ship.png' and ship: #Copy the Diamond Princess flag
             src = os.path.join(path, file)
             shutil.copy(src, dest)
         country_name = coco.convert(names=file.split('.')[0], to='short_name') #convert country names to standard name
@@ -59,7 +59,7 @@ def top_bydate(df):
     df_top['country'] = country_list
     try:
         dest = 'flags_top_bydate'
-        copy_flag(dest, country_list)
+        copy_flag(dest, country_list, ship=True)
     except:
         print("Copying flags to Tableau folder unsuccessful")
 
@@ -83,7 +83,7 @@ def country(df):
 
     try:
         dest = 'flags_country'
-        copy_flag(dest, country_list)
+        copy_flag(dest, country_list, ship=True)
     except:
         print("Copying flags to Tableau folder unsuccessful")
 
@@ -108,7 +108,7 @@ def ratio(df):
     
     try:
         dest = 'flags_ratio'
-        copy_flag(dest, country_list)
+        copy_flag(dest, country_list, ship=False)
     except:
         print("Copying flags to Tableau folder unsuccessful")
 
