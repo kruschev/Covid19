@@ -14,6 +14,7 @@ df = pd.merge(df, cured, how='left', on=['location', 'prov_state', 'country', 'l
 
 df = df.set_index('date')
 
+'''
 df = df.replace({'Martinique':'France',
                 'Reunion':'France',
                 'French Guiana':'France',
@@ -24,6 +25,7 @@ df = df.replace({'Martinique':'France',
                 'Guernsey':'United Kingdom',
                 'Jersey':'United Kingdom',
                 'Guam': 'US'})
+'''
 
 df.loc[df.location=='Greenland', 'country'] = 'Greenland'
 
