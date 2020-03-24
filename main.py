@@ -1,8 +1,8 @@
 from load_csv import *
 from make_csv import *
 
-url_case = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv'
-url_death = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv'
+url_case = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
+url_death = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
 url_cured = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv'
 
 case = load(url_case, 'case')
@@ -14,7 +14,7 @@ df = pd.merge(df, cured, how='left', on=['location', 'prov_state', 'country', 'l
 
 df = df.set_index('date')
 
-'''
+
 df = df.replace({'Martinique':'France',
                 'Reunion':'France',
                 'French Guiana':'France',
@@ -25,7 +25,7 @@ df = df.replace({'Martinique':'France',
                 'Guernsey':'United Kingdom',
                 'Jersey':'United Kingdom',
                 'Guam': 'US'})
-'''
+
 
 df.loc[df.location=='Greenland', 'country'] = 'Greenland'
 
