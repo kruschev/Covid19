@@ -15,7 +15,7 @@ def copy_flag(dest, country_list, ship=True):
     os.mkdir(dest) #remake a new folder
 
     for file in files:
-        if file == 'Cruise Ship.png' and ship: #Copy the Diamond Princess flag
+        if file == 'Diamond Princess.png' and ship: #Copy the Diamond Princess flag
             src = os.path.join(path, file)
             shutil.copy(src, dest)
         country_name = coco.convert(names=file.split('.')[0], to='short_name') #convert country names to standard name
@@ -124,8 +124,8 @@ def china(df):
     # approximate radius of earth in km
     R = 6373.0
 
-    lat_hubei = radians(df_china[df_china.location == 'Hubei'].iloc[0, 4])
-    long_hubei = radians(df_china[df_china.location == 'Hubei'].iloc[0, 5])
+    lat_hubei = radians(df_china[df_china.location == 'Hubei'].iloc[0, 3])
+    long_hubei = radians(df_china[df_china.location == 'Hubei'].iloc[0, 4])
 
     # calculate the distance from each province to Hubei, in km
     def distance_to_Hubei(row):

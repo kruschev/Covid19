@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-import pandas as pd
+import json
 
 data = {'country':[],
         'location': [],
@@ -37,4 +37,5 @@ for table in tables:
         for col, val in row:
             data[col].append(val)
 
-pd.DataFrame(data).to_csv('airport.csv', index=False)
+with open('airport.json', 'w') as file:
+    json.dump(data, file)

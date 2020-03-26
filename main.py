@@ -3,18 +3,20 @@ from make_csv import *
 
 url_case = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
 url_death = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
-url_cured = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv'
+url_cured_incomplete = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/archived_time_series/time_series_19-covid-Recovered_archived_0325.csv'
+#url_cured = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv'
 
 case = load(url_case, 'case')
 death = load(url_death, 'death')
-cured = load(url_cured, 'cured')
+cured = load(url_cured_incomplete, 'cured')
 
-df = pd.merge(case, death, how='left', on=['location', 'prov_state', 'country', 'lat', 'long', 'date'])
-df = pd.merge(df, cured, how='left', on=['location', 'prov_state', 'country', 'lat', 'long', 'date'])
+df = pd.merge(case, death, how='left', on=['location', 'prov_state', 'country', 'date'])
+df = pd.merge(df, cured, how='left', on=['location', 'prov_state', 'country', 'date'])
 
 df = df.set_index('date')
 
 
+'''
 df = df.replace({'Martinique':'France',
                 'Reunion':'France',
                 'French Guiana':'France',
@@ -25,9 +27,8 @@ df = df.replace({'Martinique':'France',
                 'Guernsey':'United Kingdom',
                 'Jersey':'United Kingdom',
                 'Guam': 'US'})
+'''
 
-
-df.loc[df.location=='Greenland', 'country'] = 'Greenland'
 
 df_top_bydate = top_bydate(df)
 df_top_bydate.to_csv('data/top_bydate.csv', index=False)

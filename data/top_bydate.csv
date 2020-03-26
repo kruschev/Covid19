@@ -10,18 +10,18 @@ date,country,New_cases,Rank
 2020-02-02,South Korea,12.0,4th
 2020-02-02,Thailand,11.0,5th
 2020-02-09,China,23199.0,1st
-2020-02-09,Cruise Ship,64.0,2nd
+2020-02-09,Diamond Princess,64.0,2nd
 2020-02-09,Singapore,22.0,3rd
 2020-02-09,Thailand,13.0,4th
 2020-02-09,South Korea,10.0,5th
 2020-02-16,China,30684.0,1st
-2020-02-16,Cruise Ship,291.0,2nd
+2020-02-16,Diamond Princess,291.0,2nd
 2020-02-16,Singapore,35.0,3rd
 2020-02-16,Japan,33.0,4th
 2020-02-16,Malaysia,6.0,5th
 2020-02-23,China,6509.0,1st
 2020-02-23,South Korea,573.0,2nd
-2020-02-23,Cruise Ship,336.0,3rd
+2020-02-23,Diamond Princess,336.0,3rd
 2020-02-23,Italy,152.0,4th
 2020-02-23,Japan,88.0,5th
 2020-03-01,South Korea,3134.0,1st
@@ -44,8 +44,8 @@ date,country,New_cases,Rank
 2020-03-22,Spain,20970.0,3rd
 2020-03-22,Germany,19078.0,4th
 2020-03-22,France,11711.0,5th
-2020-03-29,United States,10571.0,1st
-2020-03-29,Spain,6368.0,2nd
-2020-03-29,Italy,4789.0,3rd
-2020-03-29,Germany,4183.0,4th
-2020-03-29,France,3880.0,5th
+2020-03-29,United States,32502.0,1st
+2020-03-29,Spain,20747.0,2nd
+2020-03-29,Italy,15248.0,3rd
+2020-03-29,Germany,12450.0,4th
+2020-03-29,France,9357.0,5th
