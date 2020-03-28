@@ -6,8 +6,6 @@ with open('airport.json', 'r') as file:
 
 lst = []
 
-options = webdriver.ChromeOptions()
-options.add_argument('--lang=en')
 
 for dep in airports['code'][:100:20]:
     for arr in airports['code'][200:300:20]:

@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 import json
+import country_converter as coco
+
 
 data = {'country':[],
         'location': [],
@@ -20,6 +22,10 @@ for table in tables:
         country = country.find_next('b').text
     else:
         country = country.text
+        if country in ['England and Wales', 'Scotland', 'Northern Ireland']:
+            country = 'United Kingdom'
+        if country in ['Easter Island']:
+            country = 'Chile'
 
     airports = table.findAll('tr')[1:]
     for airport in airports:
@@ -36,6 +42,8 @@ for table in tables:
 
         for col, val in row:
             data[col].append(val)
+
+data['country'] = coco.convert(names=data['country'], to='short_name', not_found=None)
 
 with open('airport.json', 'w') as file:
     json.dump(data, file)
