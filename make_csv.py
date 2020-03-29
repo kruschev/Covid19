@@ -3,7 +3,7 @@ import pandas as pd
 import country_converter as coco
 
 # This function will copy the flags to be shown on the Tableau's visuals
-def copy_flag(dest, country_list, ship=True):
+def copy_flag(dest, country_list):
     import os, shutil
     import config
 
@@ -15,15 +15,17 @@ def copy_flag(dest, country_list, ship=True):
     os.mkdir(dest) #remake a new folder
 
     for file in files:
-        if file == 'Diamond Princess.png' and ship: #Copy the Diamond Princess flag
-            src = os.path.join(path, file)
-            shutil.copy(src, dest)
-        country_name = coco.convert(names=file.split('.')[0], to='short_name') #convert country names to standard name
+        #if file == 'Diamond Princess.png' and ship: #Copy the Diamond Princess flag
+            #src = os.path.join(path, file)
+            #shutil.copy(src, dest)
+        country_name = coco.convert(names=file.split('.')[0], to='short_name', not_found=None) #convert country names to standard name
         if country_name in country_list: #Copy the country flags if they are in the dataset
             src = os.path.join(path, file)
             shutil.copy(src, dest)
             if country_name == 'DR Congo': #the capitalized R in DR is problematic for Tableau
                 os.rename(os.path.join(dest, file), os.path.join(dest, 'Dr Congo.png'))
+            elif country_name == 'MS Zaandam': #the capitalized S in MS is problematic for Tableau
+                os.rename(os.path.join(dest, file), os.path.join(dest, 'Ms Zaandam.png'))
             else:
                 os.rename(os.path.join(dest, file), os.path.join(dest, country_name + '.png'))
 
@@ -59,7 +61,7 @@ def top_bydate(df):
     df_top['country'] = country_list
     try:
         dest = 'flags_top_bydate'
-        copy_flag(dest, country_list, ship=True)
+        copy_flag(dest, country_list)
     except:
         print("Copying flags to Tableau folder unsuccessful")
 
@@ -83,7 +85,7 @@ def country(df):
 
     try:
         dest = 'flags_country'
-        copy_flag(dest, country_list, ship=True)
+        copy_flag(dest, country_list)
     except:
         print("Copying flags to Tableau folder unsuccessful")
 
@@ -108,7 +110,7 @@ def ratio(df):
     
     try:
         dest = 'flags_ratio'
-        copy_flag(dest, country_list, ship=False)
+        copy_flag(dest, country_list)
     except:
         print("Copying flags to Tableau folder unsuccessful")
 
