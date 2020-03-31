@@ -1,6 +1,5 @@
 from selenium import webdriver
 import json
-import pandas as pd
 
 with open('destination.json', 'r') as file:
     routes = json.load(file)
@@ -45,5 +44,5 @@ for dep, arrs in routes.items():
 
 driver.quit()
 
-df = pd.DataFrame(flight_status)
-df.to_csv('flight_status.csv', index=False)
+with open('flight_radar.json', 'w') as file:
+    json.dump(flight_status, file)
