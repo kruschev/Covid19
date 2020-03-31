@@ -21,12 +21,12 @@ for code, country_from in zip(airports['code'], airports['country']):
             text = element.get_attribute('innerText').strip().split('\n')
             country_to = coco.convert(names=text[-1].strip(), to='short_name', not_found=None)
             if country_to != country_from:
-                destinations.append((text[0].split()[-1], country_to))
+                destinations.append(text[0].split()[-1])
     except:
         print('Something is wrong')
         destinations = []
 
-    routes['{}_{}'.format(code, country_from)] = destinations
+    routes[code] = destinations
 
 driver.quit()
 

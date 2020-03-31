@@ -4,6 +4,10 @@ import json
 import country_converter as coco
 
 
+def extract_text(content, pos_loc, pos_name, pos_code):
+    return (content[pos_loc].text.strip(), content[pos_name].text.strip(), content[pos_code].text.strip())
+
+
 data = {'country':[],
         'location': [],
         'name': [],
@@ -19,7 +23,7 @@ tables = soup.findAll('table')[1:]
 for table in tables:
     country = table.find_previous('span', {'class':'mw-headline'})
     if country.text.endswith('Europe'):
-        country = country.find_next('b').text
+        country = table.find_previous('b').text
     else:
         country = country.text
         if country in ['England and Wales', 'Scotland', 'Northern Ireland']:
@@ -28,12 +32,17 @@ for table in tables:
             country = 'Chile'
 
     airports = table.findAll('tr')[1:]
+    rowspan = 0
+    temp_loc = ''
     for airport in airports:
         content = airport.findAll('td')
 
-        location = content[0].text.strip()
-        name = content[1].text.strip()
-        code = content[2].text.strip()
+        if rowspan > 0:
+            _, name, code = extract_text(content, 0, 0, 1)
+            location = temp_loc
+            rowspan -= 1
+        else:
+            location, name, code = extract_text(content, 0, 1, 2)
 
         row = [('country', country),
                ('location', location),
@@ -42,6 +51,11 @@ for table in tables:
 
         for col, val in row:
             data[col].append(val)
+
+        if content[0].get('rowspan'):
+            rowspan = int(content[0].get('rowspan')) - 1
+            temp_loc = location
+
 
 data['country'] = coco.convert(names=data['country'], to='short_name', not_found=None)
 
