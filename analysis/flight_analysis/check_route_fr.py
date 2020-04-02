@@ -1,4 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 import json
 
 with open('destination.json', 'r') as file:
@@ -20,24 +23,24 @@ def add_status(code_from, code_to, active):
 
 driver = webdriver.Chrome()
 
-for dep, arrs in routes.items():
-    code_from = dep.split('_')[0]
-
-    codes_to = {arr[0] for arr in arrs}
-
+for code_from, codes_to in routes.items():
     url = 'https://www.flightradar24.com/data/airports/{}/routes'.format(code_from)
     driver.get(url)
+    WebDriverWait(driver, 10).until(
+       EC.visibility_of_element_located((By.XPATH, "//div[@style]/div[@title]")))
 
-    try:
-        elements = driver.find_elements_by_xpath("//div[@title]")
+    codes_to = set(codes_to)
 
-        for element in elements:
+    elements = driver.find_elements_by_xpath("//div[@title]")
+    for element in elements:
+        try:
             code_to = element.get_attribute('title')[-9:-6]
             if code_to in codes_to:
+                print(code_from, code_to)
                 add_status(code_from, code_to, 1)
                 codes_to -= {code_to}
-    except:
-        raise Exception
+        except:
+            continue
 
     for code_to in codes_to:
         add_status(code_from, code_to, 0)
