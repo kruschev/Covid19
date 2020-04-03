@@ -1,7 +1,7 @@
 # Covid19
 
 ## Introduction
-In this project, I used the John Hopkin University's dataset to analyze the Covid19 pandemic. Most analysis was done using Python, and for the final product, I created a Tableau dashboard to monitor the situation.
+In this project, I used the John Hopkin University's dataset to analyze the Covid19 pandemic. Analysis was done using Python, and for the final product, I created a Tableau dashboard to monitor the situation.
 
 main.py is run daily and the dashboard is updated accordingly.
 
@@ -32,11 +32,11 @@ Iceland, once again, is among the top performers with their small and vulnerable
 [ ![](tableau/ratio.png) ](tableau/ratio.png)
 
 ## Estimating the real total cases number for different countries
-An interesting debate during this pandemic is the hiding of information and lack of effort in testing people by some governments. Many speculate that the real number of infected people are much higher. Meanwhile, South Korea has been praised for its transparency level and for conducting huge amount of tests on its citizens.
+An interesting debate during this pandemic is the hiding of information and lack of effort in testing people by some governments. Many speculate that the real number of infected people are much higher. Meanwhile, South Korea has been praised for its transparency level and for conducting the most tests on its citizens.
 
 Since a country is less likely to hide death resulted from the virus, I attempted to use the country's death counts and South Korea's case fatality rate (cfr) to estimate the real number of infected population. 
 
-In addition, I also used a dataset from DXY.cn, which contains information such as age on about 3000 patients. Since the virus has been known to attack mostly older people, I can run a simple regression model to determine the coefficent of age on fatality, and use that to adjust the cfr for each country. The country's age data was retrieved from UN publication.
+In addition, I also used a dataset from DXY.cn, which contains information such as age on about 3000 patients. Since the virus has been known to attack mostly older people, I can run a simple regression model to determine the coefficient of age on fatality, and use that to adjust the cfr for each country. The country's age data was retrieved from UN publication.
 [ ![](tableau/adj_cases.png) ](tableau/adj_cases.png)
 After the adjustment, we can see a huge increase in some countries,for example China, Italy, Iran. However, considering that these countries were at some point overwhelmed with too many patients, it's also possible that their cfr could be much higher than average.
 
