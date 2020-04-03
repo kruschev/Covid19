@@ -6,26 +6,25 @@ In this project, I used the John Hopkin University's dataset to analyze the Covi
 main.py is run daily and the dashboard is updated accordingly.
 
 The interactive dashboard can be viewed at
-https://public.tableau.com/views/ncov_15840779917890/Info?:display_count=y&publish=yes&:origin=viz_share_link
-The dashboard works best when viewed on a computer screen.
-Click view all to keep reading.
+https://kruschev.github.io/covid19/dashboard.html
+
 ## Overview
-Coronavirus disease 2019 (COVID-19) is a pandemic caused by the SARS-CoV-2 virus. Originated from Wuhan, it has spread to more than 100 countries and territories. The disease is extremely contagious and has seen exponential growth in China, Italy and Iran. As more people are infected, the country's medical resources are strained and fatal cases are becomming more common. 
+Coronavirus disease 2019 (COVID-19) is a pandemic caused by the SARS-CoV-2 virus. Originated from Wuhan, it has spread to more than 180 countries and territories. The disease is extremely contagious and has seen exponential growth in many places. As more people are infected, the country's medical resources are strained and fatal cases are becomming more common. 
 [ ![](tableau/info.png) ](tableau/info.png)
 
 ## Spread of the virus
 So far we have seen two major phases of the pandemic. In the first phase, the outbreak is fairly contained within China. In the second phase, the outbreak in Italy initiated a widespread of the virus all over the world, especially in Europe. This could be due to the free movement policy between Schengen countries and the hesitation of governments to limit travel.
 
-[Youtube link](https://youtu.be/ek-AyIIx07E)
+[Youtube link](https://youtu.be/ByEcDfw_1eE)
 [ ![](tableau/spread.gif) ](tableau/spread.gif)
 
 ## Active cases around the world
-China started first and recorded massive growth in confirmed cases during February. However, in recent weeks there have been very few new cases being reported, while the situation in Italy is still becoming worse everyday.
-[Youtube link](https://youtu.be/8bJcSxqRitQ)
+China started first and recorded massive growth in confirmed cases during February. However, in recent weeks there have been very few new cases being reported, while the situation in Italy is still getting worse everyday.
+[Youtube link](https://youtu.be/sVMa2_p2quA)
 [ ![](tableau/active.gif) ](tableau/active.gif)
 
-## A comparison between total cases and total deaths (excluding China)
-[Youtube link](https://youtu.be/eJiO-lIXvKM)
+## A comparison between total cases and total deaths
+[Youtube link](https://youtu.be/v5di4RjEam8)
 [ ![](tableau/casedeath.gif) ](tableau/casedeath.gif)
 
 ## Total cases per population
@@ -54,5 +53,20 @@ After the adjustment, we can see a huge increase in some countries,for example C
 This image shows the distribution of cases in China, without Hubei.
 [ ![](tableau/china.png) ](tableau/china.png)
 
-#### Final thought
-As of March 17, Greenland have finally fallen, which means that [Madagascar](https://plagueinc.fandom.com/wiki/Madagascar) is now humanity's last hope.
+## Flight Routes Analysis
+I also created another dashboard to track the status of international flight routes around the world. Viewers can select one country/airport and see which flight routes are still active for the next 10 days. The dashboard is located at https://kruschev.github.io/flight_status/flight.html
+
+11 out of usual 83 countries can still fly to Italy.
+[ ![](tableau/flight_to.png) ](tableau/flight_to.png)
+
+Italy can still fly to 9 out of 80 usual countries. 
+[ ![](tableau/flight_from.png) ](tableau/flight_from.png)
+
+A map of active routes around the world.
+[ ![](tableau/airport_map.png) ](tableau/airport_map.png)
+
+A map of countries banning all international flights.
+[ ![](tableau/flight_banned.png) ](tableau/flight_banned.png)
+
+A map showing how many 'hot' countries (more than 500 COVID cases) can still fly to a certain country.
+[ ![](tableau/flight_risk.png) ](tableau/flight_risk.png)
