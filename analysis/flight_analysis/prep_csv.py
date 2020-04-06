@@ -1,12 +1,15 @@
 import pandas as pd
 
 df = pd.read_csv('flight_status.csv')
+# df_us = pd.read_csv('flight_status_us.csv')
+# df = pd.concat([df, df_us])
+
 airport = pd.read_json('airport.json')
 
 
 def merge(left, right, i):
     merged = pd.merge(left, right, how='left', left_on=i, right_on='code')
-    merged = merged.rename(columns={"country": "country_" + i, "location": "location_" + i, "name": "name_" + i})
+    merged = merged.rename(columns={"country": "country_" + i, "city": "city_" + i, "name": "name_" + i})
 
     return merged.iloc[:,:-1]
 

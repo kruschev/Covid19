@@ -14,7 +14,7 @@ with open('destination.json', 'r') as file:
 with open('city_name.json', 'r') as file:
     cities = json.load(file)
 
-#routes = {"NRT": ["FRA", "CDG", "IST", "ORD", "DFW", "AMS", "ATL", "VIE", "DXB", "LHR", "PEK", "DEN", "MAD", "PVG", "SVO", "FCO", "LAX", "BRU", "ZRH", "JFK", "CPH", "CTU", "IAH", "DUS", "CAN", "EWR", "MXP", "DOH", "XIY", "DME", "ICN", "CKG", "SZX", "BKK", "YUL", "HKG", "KMG", "SIN", "BOS", "HEL", "IAD", "WAW", "DEL", "DTW", "TLV", "SFO", "KUL", "TPE", "SEA", "HGH", "YVR", "TSN", "CSX", "BOM", "MEX", "TAO", "SYD", "XMN", "CGO", "NKG", "DMK", "MNL", "WUH", "OVB", "CAI", "HRB", "SHE", "AUH", "YYC", "CGK", "DLC", "BNE", "BLR", "FOC", "SAN", "PDX", "MEL", "SGN", "DPS", "TAS", "NGB", "AKL", "YNT", "MAA", "HAN", "HNL", "CGQ", "PER", "TSE", "CMB", "SJC", "RGN", "MFM", "CEB", "PUS", "PPT", "KTM", "KHH", "CNS", "BKI", "CRK", "DAD", "VVO", "PNH", "POM", "NAN", "BWN", "CJU", "ULN", "KHV", "REP", "RMQ", "UUS", "TAE", "KOA", "OOL", "GUM", "NOU", "SPN", "SKD"]}
+#routes = {"TIA": ["FRA", "IST", "AMS", "VIE", "LGW", "FCO", "BRU", "STN", "ZRH", "CPH", "DUS", "MXP", "ATH", "PRG", "BUD", "OSL", "HEL", "GVA", "WAW", "LTN", "ORY", "STR", "BGY", "CGN", "SAW", "VCE", "BLQ", "KBP", "HER", "RUH", "BRI", "BEG", "PSA", "VRN", "TRN", "FMM", "TSF", "DTM", "GOA", "FLR", "PRN", "RMI", "AOI", "PEG"]}
 flight_status = {"from": [],
                  "to": [],
                  "active": [],
@@ -31,50 +31,104 @@ def add_status(code_from, code_to, active, date):
     return
 
 
+def route_check(code_from, code_to, date):
+    url = 'https://www.google.com/flights?hl=en#flt={}.{}.{};c:USD;e:1;s:0;sd:1;t:f;tt:o'.format(code_from,
+                                                                                                  code_to,
+                                                                                                  date)
+    try:
+        driver.get(url)
+
+        button = driver.find_element_by_class_name("gws-flights-form__date-content")
+        button.click()
+
+        time.sleep(2)
+
+        calendar = driver.find_elements_by_xpath(
+            "//calendar-day[contains(@class, 'selected-day')]/following::calendar-day[position()<=14]")
+        for d in calendar:
+            price = d.find_element_by_class_name("gws-travel-calendar__annotation")
+            if price.text != '':
+                add_status(code_from, code_to, 1, date)
+                print(f'{code_from}_{code_to}_routecheck_1')
+                break
+        else:
+            add_status(code_from, code_to, 0, date)
+            print(f'{code_from}_{code_to}_routecheck_0')
+
+        return
+    except:
+        return
+
+
+def explore(code_from, date):
+    url = 'https://www.google.com/flights?hl=en#flt={}..{};c:USD;e:1;s:0;sd:1;t:f;tt:o'.format(code_from, date)
+    try:
+        driver.get(url)
+
+        button = driver.find_elements_by_class_name("gws-flights-form__input-container")[1]
+        button.click()
+        time.sleep(2)
+    except:
+        return []
+
+    try:
+        button = driver.find_element_by_class_name("vrfBC")
+        button.click()
+    except:
+        print(code_from + ': no flight ' + date)
+        return []
+
+    try:
+        WebDriverWait(driver, 5).until(
+            EC.visibility_of_element_located((By.CLASS_NAME, "VfPpkd-LgbsSe-OWXEXe-MV7yeb")))
+
+        stops = driver.find_element_by_class_name("VfPpkd-LgbsSe-OWXEXe-MV7yeb")
+        stops.click()
+        no_stop = driver.find_element_by_id("i22")
+        no_stop.click()
+
+        time.sleep(2)
+        zoom_btn = driver.find_elements_by_class_name("gm-control-active")[2]
+        for i in range(2):
+            zoom_btn.click()
+
+        # WebDriverWait(driver, 5).until(
+        #     EC.visibility_of_element_located((By.CLASS_NAME, "wIuJz")))
+        time.sleep(3)
+
+        destinations = driver.find_elements_by_xpath("//div[contains(@class, 'ZjDced')]/preceding-sibling::h3")
+
+        return destinations
+    except:
+        return []
+
+
 driver = webdriver.Chrome()
 driver.maximize_window()
 
 today = datetime.datetime.today()
-dates = [today + datetime.timedelta(days=x) for x in range(1,15)]
+dates = [today + datetime.timedelta(days=x) for x in range(15)]
 
 for code_from, codes_to in routes.items():
     codes_to = set(codes_to)
 
     destinations_shown = []
 
-    for date in dates:
-        if len(codes_to) == 0:
+    for idx, date in enumerate(dates):
+        if len(codes_to) <= (25-idx):
+            date = date.strftime("%Y-%m-%d")
+
+            for code_to in codes_to:
+                route_check(code_from, code_to, date)
             break
 
-        date = date.strftime("%Y-%m-%d")
-        url = 'https://www.google.com/flights?hl=en#flt={}..{};c:USD;e:1;s:0;sd:1;t:f;tt:o'.format(code_from, date)
-        driver.get(url)
+        elif date == today:
+            continue
 
-        button = driver.find_elements_by_class_name("gws-flights-form__input-container")[1]
-        button.click()
-        time.sleep(2)
+        else:
+            date = date.strftime("%Y-%m-%d")
 
-        try:
-            button = driver.find_element_by_class_name("vrfBC")
-            button.click()
-
-            time.sleep(4)
-
-            stops = driver.find_element_by_class_name("VfPpkd-LgbsSe-OWXEXe-MV7yeb")
-            stops.click()
-            no_stop = driver.find_element_by_id("i22")
-            no_stop.click()
-
-            time.sleep(3)
-            zoom_btn = driver.find_elements_by_class_name("gm-control-active")[2]
-            for i in range(3):
-                zoom_btn.click()
-                #time.sleep(4)
-
-            WebDriverWait(driver, 5).until(
-                EC.visibility_of_element_located((By.CLASS_NAME, "wIuJz")))
-
-            destinations = driver.find_elements_by_xpath("//div[contains(@class, 'ZjDced')]/preceding::h3")
+            destinations = explore(code_from, date)
             for destination in destinations:
                 destination = destination.text
                 if destination in destinations_shown:
@@ -85,40 +139,17 @@ for code_from, codes_to in routes.items():
                     for code_to in destination_airports:
                         if code_to in codes_to:
                             add_status(code_from, code_to, 1, date)
-                            print(flight_status)
+                            print(f'{code_from}_{code_to}_explore_1')
                             codes_to -= {code_to}
                 except KeyError:
                     print(destination)
 
                 destinations_shown.append(destination)
 
-                # driver.get(url)
-                #
-                # input_city = driver.find_elements_by_class_name("flt-input")[1]
-                # input_city.click()
-                #
-                # input_text = driver.find_element_by_tag_name("input")
-                # input_text.send_keys(destination)
-                #
-                # results = driver.find_elements_by_class_name("gws-flights-results__airports")
-                # result_codes ={}
-                # for result in results:
-                #     result_codes += {result.text.split('-')[1]}
-                #
-                # for code_to in result_codes:
-                #     if code_to in codes_to:
-                #         add_status(code_from, code_to, 1, date)
-                #         print(flight_status)
-                #         codes_to -= {code_to}
-                #     else:
-                #         print((code_from, code_to))
-
-        except:
-            raise Exception
-            print(code_from + ': no flight ' + date)
-
-    for code_to in codes_to:
-        add_status(code_from, code_to, 0, '')
+    else:
+        for code_to in codes_to:
+            add_status(code_from, code_to, 0, '')
+            print(f'{code_from}_{code_to}_explore_0')
 
 driver.quit()
 

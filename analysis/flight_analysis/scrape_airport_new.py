@@ -33,8 +33,8 @@ for url in urls:
         EC.visibility_of_element_located((By.CLASS_NAME, "views-row-last")))
 
     info = driver.find_element_by_id("datatable-1_info").text.split(' ')
-    loaded_rows = info[-4]
-    total_rows = info[-2]
+    loaded_rows = int(info[-4].replace(',', ''))
+    total_rows = int(info[-2].replace(',', ''))
 
     while loaded_rows <= total_rows:
         cities = driver.find_elements_by_class_name("views-field-field-gorod-eng")[1:]
@@ -53,7 +53,7 @@ for url in urls:
             break
         next_btn = driver.find_element_by_id("datatable-1_next")
         next_btn.click()
-        loaded_rows = driver.find_element_by_id("datatable-1_info").text.split(' ')[-4]
+        loaded_rows = int(driver.find_element_by_id("datatable-1_info").text.split(' ')[-4].replace(',', ''))
 
     if country_name == 'Zimbabwe':
         break
