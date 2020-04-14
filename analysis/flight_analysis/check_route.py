@@ -14,7 +14,7 @@ with open('destination.json', 'r') as file:
 with open('city_name.json', 'r') as file:
     cities = json.load(file)
 
-#routes = {"TIA": ["FRA", "IST", "AMS", "VIE", "LGW", "FCO", "BRU", "STN", "ZRH", "CPH", "DUS", "MXP", "ATH", "PRG", "BUD", "OSL", "HEL", "GVA", "WAW", "LTN", "ORY", "STR", "BGY", "CGN", "SAW", "VCE", "BLQ", "KBP", "HER", "RUH", "BRI", "BEG", "PSA", "VRN", "TRN", "FMM", "TSF", "DTM", "GOA", "FLR", "PRN", "RMI", "AOI", "PEG"]}
+#routes = {"NCL": ["CDG", "AMS", "MUC", "VIE", "DXB", "BCN", "FCO", "BRU", "CPH", "DUS", "DUB", "EWR", "PMI", "PRG", "BUD", "GVA", "AGP", "CGN", "ALC", "CUN", "MLA", "NCE", "AYT", "KRK", "LPA", "TFS", "HER", "SKG", "IBZ", "LCA", "CFU", "RHO", "FAO", "SPU", "PSA", "DBV", "ADB", "GDN", "FUE", "KEF", "ACE", "MAH", "BGO", "KGS", "WRO", "BOJ", "NUE", "SZG", "PFO", "FNC", "GRO", "ZTH", "SXB", "DLM", "SVG", "BJV", "LEI", "REU", "GNB", "JER", "BER", "GCI"]}
 flight_status = {"from": [],
                  "to": [],
                  "active": [],
@@ -107,7 +107,7 @@ driver = webdriver.Chrome()
 driver.maximize_window()
 
 today = datetime.datetime.today()
-dates = [today + datetime.timedelta(days=x) for x in range(15)]
+dates = [today + datetime.timedelta(days=x) for x in range(11)]
 
 for code_from, codes_to in routes.items():
     codes_to = set(codes_to)
@@ -115,7 +115,7 @@ for code_from, codes_to in routes.items():
     destinations_shown = []
 
     for idx, date in enumerate(dates):
-        if len(codes_to) <= (25-idx):
+        if len(codes_to) <= (20-idx):
             date = date.strftime("%Y-%m-%d")
 
             for code_to in codes_to:
@@ -152,9 +152,9 @@ for code_from, codes_to in routes.items():
             print(f'{code_from}_{code_to}_explore_0')
 
 driver.quit()
-
-df = pd.DataFrame(flight_status)
-df.to_csv('flight_status.csv', index=False)
+print(flight_status)
+# df = pd.DataFrame(flight_status)
+# df.to_csv('flight_status.csv', index=False)
 
 
 

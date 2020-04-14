@@ -13,9 +13,7 @@ ignored_exceptions = (NoSuchElementException, StaleElementReferenceException,)
 with open('destination.json', 'r') as file:
     routes = json.load(file)
 
-options = webdriver.ChromeOptions()
-options.add_argument('--lang=en')
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome()
 
 codes = set()
 city_dict = defaultdict(list)

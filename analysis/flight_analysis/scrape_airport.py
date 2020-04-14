@@ -9,7 +9,7 @@ def extract_text(content, pos_loc, pos_name, pos_code):
 
 
 data = {'country':[],
-        'location': [],
+        'city': [],
         'name': [],
         'code': []}
 
@@ -39,13 +39,13 @@ for table in tables:
 
         if rowspan > 0:
             _, name, code = extract_text(content, 0, 0, 1)
-            location = temp_loc
+            city = temp_loc
             rowspan -= 1
         else:
-            location, name, code = extract_text(content, 0, 1, 2)
+            city, name, code = extract_text(content, 0, 1, 2)
 
         row = [('country', country),
-               ('location', location),
+               ('city', city),
                ('name', name),
                ('code', code)]
 
@@ -54,7 +54,7 @@ for table in tables:
 
         if content[0].get('rowspan'):
             rowspan = int(content[0].get('rowspan')) - 1
-            temp_loc = location
+            temp_loc = city
 
 
 data['country'] = coco.convert(names=data['country'], to='short_name', not_found=None)

@@ -4,7 +4,7 @@ df = pd.read_csv('flight_status.csv')
 # df_us = pd.read_csv('flight_status_us.csv')
 # df = pd.concat([df, df_us])
 
-airport = pd.read_json('airport.json')
+airport = pd.read_json('airport_info.json')
 
 
 def merge(left, right, i):
