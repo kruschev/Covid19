@@ -15,16 +15,13 @@ Coronavirus disease 2019 (COVID-19) is a pandemic caused by the SARS-CoV-2 virus
 ## Spread of the virus
 So far we have seen two major phases of the pandemic. In the first phase, the outbreak is fairly contained within China. In the second phase, the outbreak in Italy initiated a widespread of the virus all over the world, especially in Europe. This could be due to the free movement policy between Schengen countries and the hesitation of governments to limit travel.
 
-[Youtube link](https://youtu.be/ByEcDfw_1eE)
 [ ![](tableau/spread.gif) ](tableau/spread.gif)
 
 ## Active cases around the world
 China started first and recorded massive growth in confirmed cases during February. However, in recent weeks there have been very few new cases being reported, while the situation in Italy is still getting worse everyday.
-[Youtube link](https://youtu.be/sVMa2_p2quA)
 [ ![](tableau/active.gif) ](tableau/active.gif)
 
 ## A comparison between total cases and total deaths
-[Youtube link](https://youtu.be/v5di4RjEam8)
 [ ![](tableau/casedeath.gif) ](tableau/casedeath.gif)
 
 ## Total cases per population
@@ -54,12 +51,12 @@ This image shows the distribution of cases in China, without Hubei.
 [ ![](tableau/china.png) ](tableau/china.png)
 
 ## Flight Routes Analysis
-I also created another dashboard to track the status of international flight routes around the world. Viewers can select one country/airport and see which flight routes are still active for the next 10 days. The dashboard is located at https://kruschev.github.io/flight_status/flight.html
+I also created another dashboard to track the status of international direct flight routes around the world. Viewers can select one country/airport and see which flight routes are still active for the next 10 days. The dashboard is located at https://kruschev.github.io/flight_status/flight.html
 
-11 out of usual 83 countries can still fly to Italy.
+40 out of usual 105 countries can still fly directly to US.
 [ ![](tableau/flight_to.png) ](tableau/flight_to.png)
 
-Italy can still fly to 9 out of 80 usual countries. 
+US can still fly directly to 31 out of 106 usual countries. 
 [ ![](tableau/flight_from.png) ](tableau/flight_from.png)
 
 A map of active routes around the world.
