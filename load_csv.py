@@ -5,21 +5,21 @@ def load(url, measure_name):
     df = pd.read_csv(url)
     df = df.rename(columns={'Province/State':'prov_state', 'Country/Region':'country', 'Lat':'lat', 'Long':'long'})
 
-    if measure_name == 'cured':
-        df = df.iloc[:, :-1]
-        df = correct_us(df)
-
-        from datetime import datetime, timedelta
-
-        cured_start_date = datetime.strptime('2020-03-22', '%Y-%m-%d')
-        date_diff = (datetime.now() - cured_start_date).days
-
-        for i in range(1, date_diff):
-            date_to_fetch = cured_start_date + timedelta(days=i)
-            url_cured_daily = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/{}.csv'.format(
-                date_to_fetch.strftime('%m-%d-%Y'))
-            cured_daily = load_recovered(url_cured_daily, date_to_fetch)
-            df = pd.merge(df, cured_daily, how='outer', on=['prov_state', 'country'])
+##    if measure_name == 'cured':
+##        df = df.iloc[:, :-1]
+##        df = correct_us(df)
+##
+##        from datetime import datetime, timedelta
+##
+##        cured_start_date = datetime.strptime('2020-03-22', '%Y-%m-%d')
+##        date_diff = (datetime.now() - cured_start_date).days
+##
+##        for i in range(1, date_diff):
+##            date_to_fetch = cured_start_date + timedelta(days=i)
+##            url_cured_daily = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/{}.csv'.format(
+##                date_to_fetch.strftime('%m-%d-%Y'))
+##            cured_daily = load_recovered(url_cured_daily, date_to_fetch)
+##            df = pd.merge(df, cured_daily, how='outer', on=['prov_state', 'country'])
 
     df = df.set_index(['prov_state', 'country', 'lat', 'long'])
     df = df.stack()
@@ -28,10 +28,7 @@ def load(url, measure_name):
     cum = 'cum_' + measure_name
     df.columns = ['prov_state', 'country', 'lat', 'long', 'date', cum]
 
-    if measure_name =='abcxyz':
-        df.date = pd.to_datetime(df.date, format='%m/%d/%Y')
-    else:
-        df.date = pd.to_datetime(df.date, format='%m/%d/%y')
+    df.date = pd.to_datetime(df.date, format='%m/%d/%y')
 
     df = df[df[cum] != 0]
 
