@@ -1,4 +1,4 @@
-date,country,New_cases,Rank
+date,country,Num,Rank
 2020-01-26,China,2075.0,1st
 2020-01-26,Thailand,8.0,2nd
 2020-01-26,United States,5.0,3rd
@@ -59,8 +59,8 @@ date,country,New_cases,Rank
 2020-04-12,United Kingdom,36770.0,3rd
 2020-04-12,Spain,35185.0,4th
 2020-04-12,Turkey,29887.0,5th
-2020-04-19,United States,112488.0,1st
-2020-04-19,France,25379.0,2nd
-2020-04-19,United Kingdom,18939.0,3rd
-2020-04-19,Spain,18117.0,4th
-2020-04-19,Turkey,17237.0,5th
+2020-04-19,United States,203773.0,1st
+2020-04-19,United Kingdom,35966.0,2nd
+2020-04-19,France,32385.0,3rd
+2020-04-19,Spain,31843.0,4th
+2020-04-19,Turkey,29350.0,5th

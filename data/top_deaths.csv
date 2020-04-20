@@ -1,0 +1,51 @@
+date,country,Num,Rank
+2020-02-16,China,245.0,1st
+2020-02-16,France,1.0,2nd
+2020-02-16,Taiwan,1.0,3rd
+2020-02-16,Australia,0.0,4th
+2020-02-16,Belgium,0.0,5th
+2020-02-23,China,679.0,1st
+2020-02-23,Iran,8.0,2nd
+2020-02-23,South Korea,6.0,3rd
+2020-02-23,Diamond Princess,3.0,4th
+2020-02-23,Italy,3.0,5th
+2020-03-01,China,427.0,1st
+2020-03-01,Iran,46.0,2nd
+2020-03-01,Italy,31.0,3rd
+2020-03-01,South Korea,11.0,4th
+2020-03-01,Japan,5.0,5th
+2020-03-08,Italy,332.0,1st
+2020-03-08,China,228.0,2nd
+2020-03-08,Iran,140.0,3rd
+2020-03-08,South Korea,33.0,4th
+2020-03-08,United States,20.0,5th
+2020-03-15,Italy,1443.0,1st
+2020-03-15,Iran,530.0,2nd
+2020-03-15,Spain,272.0,3rd
+2020-03-15,China,103.0,4th
+2020-03-15,France,72.0,5th
+2020-03-22,Italy,3667.0,1st
+2020-03-22,Spain,1483.0,2nd
+2020-03-22,Iran,961.0,3rd
+2020-03-22,France,585.0,4th
+2020-03-22,United States,354.0,5th
+2020-03-29,Italy,5303.0,1st
+2020-03-29,Spain,5031.0,2nd
+2020-03-29,United States,2050.0,3rd
+2020-03-29,France,1935.0,4th
+2020-03-29,Iran,955.0,5th
+2020-04-05,United States,7152.0,1st
+2020-04-05,Spain,5838.0,2nd
+2020-04-05,France,5482.0,3rd
+2020-04-05,Italy,5108.0,4th
+2020-04-05,United Kingdom,3712.0,5th
+2020-04-12,United States,12400.0,1st
+2020-04-12,France,6319.0,2nd
+2020-04-12,United Kingdom,5686.0,3rd
+2020-04-12,Spain,4568.0,4th
+2020-04-12,Italy,4012.0,5th
+2020-04-19,United States,18642.0,1st
+2020-04-19,United Kingdom,5466.0,2nd
+2020-04-19,France,5332.0,3rd
+2020-04-19,Italy,3761.0,4th
+2020-04-19,Spain,3244.0,5th

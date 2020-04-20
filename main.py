@@ -30,8 +30,11 @@ df = df.replace({'Martinique':'France',
 '''
 
 
-df_top_bydate = top_bydate(df)
-df_top_bydate.to_csv('data/top_bydate.csv', index=False)
+df_top_cases = top_bydate(df, 'new_case')
+df_top_cases.to_csv('data/top_cases.csv', index=False)
+
+df_top_deaths = top_bydate(df, 'new_death')
+df_top_deaths.to_csv('data/top_deaths.csv', index=False)
 
 df_country = country(df)
 df_country.to_csv('data/country.csv', index=False)

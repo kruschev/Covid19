@@ -152,9 +152,9 @@ for code_from, codes_to in routes.items():
             print(f'{code_from}_{code_to}_explore_0')
 
 driver.quit()
-print(flight_status)
-# df = pd.DataFrame(flight_status)
-# df.to_csv('flight_status.csv', index=False)
+
+df = pd.DataFrame(flight_status)
+df.to_csv('flight_status.csv', index=False)
 
 
 

@@ -34,21 +34,24 @@ def copy_flag(dest, country_list, ship=True):
 
 
 # This function is for the weekly new cases ranking chart
-def top_bydate(df):
+def top_bydate(df, measure):
+    if measure == 'new_death':
+        df = df.loc['2020-02-15':]
+
     df_top = df.groupby([pd.Grouper(freq='W', level=0), 'country']).sum() #group the data by date (weekly) and then by country
     df_top = df_top.reset_index()
-    df_top = df_top.sort_values(['date', 'new_case'], ascending=[True, False])
+    df_top = df_top.sort_values(['date', measure], ascending=[True, False])
 
     for i in range(5): #preparing the ranking
-        df_top[str(i+1)] = df_top.groupby('date').country.transform(lambda x:x.iloc[i]) #top 5 countries
-        df_top[str(i+1) + '_cases'] = df_top.groupby('date').new_case.transform(lambda x:x.iloc[i]) #number of new cases associated with such country
+        df_top[str(i+1)] = df_top.groupby('date')['country'].transform(lambda x:x.iloc[i]) #top 5 countries
+        df_top[str(i+1) + '_num'] = df_top.groupby('date')[measure].transform(lambda x:x.iloc[i]) #number of new cases associated with such country
 
-    df_top = df_top.groupby('date').first().loc[:,'1':'5_cases'] #keep only the relevant columns
+    df_top = df_top.groupby('date').first().loc[:,'1':'5_num'] #keep only the relevant columns
 
     stacked = df_top.iloc[:,::2].stack().reset_index() #transform the df
 
     df_top = pd.DataFrame(dict(country=df_top.values[:,::2].reshape(-1),
-                          New_cases=df_top.values[:,1::2].reshape(-1),
+                          Num=df_top.values[:,1::2].reshape(-1),
                           Rank=stacked.level_1.values), index=stacked.date)
 
     #rename the ranking for displaying in Tableau
@@ -61,7 +64,7 @@ def top_bydate(df):
     country_list = coco.convert(names=df_top.country.to_list(), to='short_name', not_found=None) #convert country names to standard
     df_top['country'] = country_list
     try:
-        dest = 'flags_top_bydate'
+        dest = 'flags_top_' + measure
         copy_flag(dest, country_list)
     except:
         print("Copying flags to Tableau folder unsuccessful")
@@ -108,6 +111,7 @@ def ratio(df):
     df_ratio = pd.merge(df_ratio, pop, how='left', on='country') #merge with main df
 
     df_ratio['case_ratio'] = df_ratio.new_case / df_ratio.population #calculate the case per capita ratio
+    df_ratio['death_ratio'] = df_ratio.new_death / df_ratio.population  # calculate the death per capita ratio
     
     try:
         dest = 'flags_ratio'
