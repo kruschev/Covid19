@@ -107,7 +107,7 @@ driver = webdriver.Chrome()
 driver.maximize_window()
 
 today = datetime.datetime.today()
-dates = [today + datetime.timedelta(days=x) for x in range(11)]
+dates = [today + datetime.timedelta(days=x) for x in range(1, 12)]
 
 for code_from, codes_to in routes.items():
     codes_to = set(codes_to)
@@ -122,16 +122,19 @@ for code_from, codes_to in routes.items():
                 route_check(code_from, code_to, date)
             break
 
-        elif date == today:
-            continue
+        # elif date == today:
+        #     continue
 
         else:
             date = date.strftime("%Y-%m-%d")
 
             destinations = explore(code_from, date)
             for destination in destinations:
-                destination = destination.text
-                if destination in destinations_shown:
+                try:
+                    destination = destination.text
+                    if destination in destinations_shown:
+                        continue
+                except:
                     continue
 
                 try:
