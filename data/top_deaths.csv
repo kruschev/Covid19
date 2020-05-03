@@ -28,29 +28,34 @@ date,country,Num,Rank
 2020-03-22,Spain,1483.0,2nd
 2020-03-22,Iran,961.0,3rd
 2020-03-22,France,585.0,4th
-2020-03-22,United States,354.0,5th
+2020-03-22,United States,513.0,5th
 2020-03-29,Italy,5303.0,1st
 2020-03-29,Spain,5031.0,2nd
-2020-03-29,United States,2050.0,3rd
+2020-03-29,United States,2834.0,3rd
 2020-03-29,France,1935.0,4th
-2020-03-29,Iran,955.0,5th
-2020-04-05,United States,7152.0,1st
+2020-03-29,United Kingdom,1386.0,5th
+2020-04-05,United States,8955.0,1st
 2020-04-05,Spain,5838.0,2nd
 2020-04-05,France,5482.0,3rd
 2020-04-05,Italy,5108.0,4th
-2020-04-05,United Kingdom,3712.0,5th
-2020-04-12,United States,12410.0,1st
-2020-04-12,France,6319.0,2nd
-2020-04-12,United Kingdom,5686.0,3rd
+2020-04-05,United Kingdom,4202.0,5th
+2020-04-12,United States,13711.0,1st
+2020-04-12,United Kingdom,6428.0,2nd
+2020-04-12,France,6319.0,3rd
 2020-04-12,Spain,4568.0,4th
 2020-04-12,Italy,4012.0,5th
-2020-04-19,United States,18632.0,1st
-2020-04-19,United Kingdom,5466.0,2nd
-2020-04-19,France,5332.0,3rd
+2020-04-19,United States,14859.0,1st
+2020-04-19,United Kingdom,6225.0,2nd
+2020-04-19,France,5308.0,3rd
 2020-04-19,Italy,3761.0,4th
 2020-04-19,Spain,3244.0,5th
-2020-04-26,United States,14220.0,1st
-2020-04-26,United Kingdom,4699.0,2nd
-2020-04-26,France,3146.0,3rd
+2020-04-26,United States,13936.0,1st
+2020-04-26,United Kingdom,5590.0,2nd
+2020-04-26,France,3139.0,3rd
 2020-04-26,Italy,2984.0,4th
 2020-04-26,Spain,2737.0,5th
+2020-05-03,United States,11488.0,1st
+2020-05-03,United Kingdom,4088.0,2nd
+2020-05-03,Brazil,2475.0,3rd
+2020-05-03,Italy,2066.0,4th
+2020-05-03,Spain,1910.0,5th
