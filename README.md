@@ -13,19 +13,12 @@ Coronavirus disease 2019 (COVID-19) is a pandemic caused by the SARS-CoV-2 virus
 [ ![](tableau/info.png) ](tableau/info.png)
 
 ## Spread of the virus
-So far we have seen two major phases of the pandemic. In the first phase, the outbreak is fairly contained within China. In the second phase, the outbreak in Italy initiated a widespread of the virus all over the world, especially in Europe. This could be due to the free movement policy between Schengen countries and the hesitation of governments to limit travel.
-
 [ ![](tableau/spread.gif) ](tableau/spread.gif)
-
-## Active cases around the world
-China started first and recorded massive growth in confirmed cases during February. However, in recent weeks there have been very few new cases being reported, while the situation in Italy is still getting worse everyday.
-[ ![](tableau/active.gif) ](tableau/active.gif)
 
 ## A comparison between total cases and total deaths
 [ ![](tableau/casedeath.gif) ](tableau/casedeath.gif)
 
-## Total cases per population
-Iceland, once again, is among the top performers with their small and vulnerable population. During 2009 H1N1, they were the country with highest confirmed case per capita.
+## Total cases/deaths per population
 [ ![](tableau/ratio.png) ](tableau/ratio.png)
 
 ## Estimating the real total cases number for different countries
@@ -35,16 +28,21 @@ Since a country is less likely to hide death resulted from the virus, I attempte
 
 In addition, I also used a dataset from DXY.cn, which contains information such as age on about 3000 patients. Since the virus has been known to attack mostly older people, I can run a simple regression model to determine the coefficient of age on fatality, and use that to adjust the cfr for each country. The country's age data was retrieved from UN publication.
 [ ![](tableau/adj_cases.png) ](tableau/adj_cases.png)
-After the adjustment, we can see a huge increase in some countries,for example China, Italy, Iran. However, considering that these countries were at some point overwhelmed with too many patients, it's also possible that their cfr could be much higher than average.
+After the adjustment, we can see a huge increase in many countries. However, considering that these countries were at some point overwhelmed with too many patients, it's also possible that their cfr could be much higher than average.
 
-## Comparison of number of new cases between countries
+## Comparison of number of new cases/deaths between countries
 [ ![](tableau/new_case.png) ](tableau/new_case.png)
 
-## Ranking countries on number of new cases for each week
+## Ranking countries on number of new cases/deaths for each week
 [ ![](tableau/new_case_weekly.png) ](tableau/new_case_weekly.png)
 
 ## Span of epidemic
+A snapshot of daily case/death counts for each country. The intensity of color shows the real daily count number.
 [ ![](tableau/span.png) ](tableau/span.png)
+
+## Epidemic curve
+Using color to show the epidemic curve for each country, with black color being the peak(s). We can see that some countries (Iran, US, ...) are entering a second wave.
+[ ![](tableau/curve.png) ](tableau/curve.png)
 
 ## Breakdown of China provinces
 This image shows the distribution of cases in China, without Hubei.
